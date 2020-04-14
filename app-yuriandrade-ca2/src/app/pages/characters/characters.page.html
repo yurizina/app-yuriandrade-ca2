@@ -1,13 +1,26 @@
 <!-- We can settle all primary code in html, but these buttons will not work-->
 <!-- We need to go to characters.page.ts to implement the logic behind this code-->
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Characters</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Characters</ion-title>
+	</ion-toolbar>
 </ion-header>
- 
+
 <ion-content class="ion-padding">
-<!-- Two buttons that can access all details from the characters and by ID-->
-  <ion-button expand="full" (click)="openDetails()">Go to Details with function</ion-button>
-  <ion-button expand="full" routerLink="/tabs/characters/1" routerDirection="forward">Go to Details with link</ion-button>
+	<ion-list>
+		<ion-item button detail lines="inset" *ngFor="let character of characters | async"
+			(click)="openDetails(character)">
+			<!-- ngFor responsible for create multiple elements same type in array -->
+			<!-- async - observe variable that execute multiple things without finishing current-->
+			<!-- ? - if varibable null dont crash -->
+			{{ character.name }}
+		</ion-item>
+	</ion-list>
+	<!-- Two buttons that can access all details from the characters and by ID-->
+	<!-- 
+       <ion-button expand="full" (click)="openDetails()">Go to Details with function</ion-button>
+	<ion-button expand="full" routerLink="/tabs/characters/1" routerDirection="forward">Go to Details with link
+	</ion-button>
+
+    -->
 </ion-content>
