@@ -21,7 +21,7 @@ export class CharacterDetailsPage implements OnInit {
         //Old - this.characterID = this.activatedRoute.snapshot.paramMap.get('id');
         let id = this.activatedRoute.snapshot.paramMap.get('id');
         this.http.get('https://www.breakingbadapi.com/api/characters/${id}').subscribe( res => {
-            this.character = res;
+          this.character = res;
         })
 
     }

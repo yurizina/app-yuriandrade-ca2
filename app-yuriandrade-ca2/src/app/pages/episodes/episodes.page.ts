@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-episodes',
@@ -9,13 +11,19 @@ import { Router } from '@angular/router';
 })
 export class EpisodesPage implements OnInit {
 
-  constructor(private navController: NavController, private router: Router) { }
+    episodes: Observable<any>
+
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
+      this.episodes = this.api.getEpisodes();
   }
 
-  openDetails(){
-      this.router.navigateByUrl('/tabs/episodes/1');
+  openDetails(episode){
+      //We come with this line after we check the API and see that episode is presented there 
+      let episodeId = episode.episode_id;
+      //this.router.navigateByUrl('/tabs/episodes/${episodeId}');
+      this.router.navigateByUrl('/tabs/characters/${episode_id}');  
   }
 
 }
