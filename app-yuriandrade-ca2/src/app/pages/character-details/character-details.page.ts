@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //Add the ActivatedRoute, where can be used further in our code to path/navigate 
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../services/api.service';
 
 @Component({
     selector: 'app-character-details',
@@ -11,19 +11,21 @@ import { HttpClient } from '@angular/common/http';
 export class CharacterDetailsPage implements OnInit {
 
     character: any;
-    //characterID = null;
+    charId = null;
     //First of all we set the character ID, then we can use the constructor 
 
-    constructor(private activatedRoute: ActivatedRoute, private http:HttpClient) { }
+    constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
     ngOnInit() {
-        //Old - Here the function use the path from constructor to GET paraments pased in ID.
-        //Old - this.characterID = this.activatedRoute.snapshot.paramMap.get('id');
-        let id = this.activatedRoute.snapshot.paramMap.get('id');
-        this.http.get('https://www.breakingbadapi.com/api/characters/${id}').subscribe( res => {
-          this.character = res;
-        })
-
+        //This is our main fuinction to this page, there is no need to a new one as the Character page 
+    
+        this.charId = this.activatedRoute.snapshot.paramMap.get('id'); 
+        
+        this.api.getCharacter(this.charId).subscribe(res => {
+          this.character = res[0];
+          //Honestly I do not know why we use JSON here! :P Not yet! 
+          console.log(JSON.stringify(res[0]));
+       });
     }
 
 }

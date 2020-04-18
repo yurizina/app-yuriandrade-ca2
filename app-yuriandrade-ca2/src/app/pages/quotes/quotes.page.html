@@ -1,13 +1,14 @@
-<!-- We can settle all primary code in html, but these buttons will not work-->
-<!-- We need to go to characters.page.ts to implement the logic behind this code-->
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Quotes </ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Quotes </ion-title>
+	</ion-toolbar>
 </ion-header>
- 
+
 <ion-content class="ion-padding">
-<!-- Two buttons that can access all details from the characters and by ID-->
-  <ion-button expand="full" (click)="openDetails()">Go to Details with function</ion-button>
-  <ion-button expand="full" routerLink="/tabs/quotes/1" routerDirection="forward">Go to Details with link</ion-button>
+
+	<ion-list>
+		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quote)">
+			{{ quote.quote }}
+		</ion-item>
+	<ion-list>
 </ion-content>

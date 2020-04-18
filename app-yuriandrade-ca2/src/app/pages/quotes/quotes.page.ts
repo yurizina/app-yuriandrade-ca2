@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,13 +10,20 @@ import { Router } from '@angular/router';
 })
 export class QuotesPage implements OnInit {
 
-  constructor(private navController: NavController, private router: Router) { }
+    quotes: Observable<any>
 
-  ngOnInit() {
-  }
+  constructor(private api: ApiService, private router: Router) { }
 
-  openDetails(){
-      this.router.navigateByUrl('/tabs/quotes/1');
-  }
+   ngOnInit() {
+        this.quotes = this.api.getQuotes();
+        this.quotes.subscribe(data => {
+            console.log('my data', data);
+        });
+    }
+
+    openDetails(quote) {
+        let qId = quote.quote_id;
+        this.router.navigateByUrl(`/tabs/quotes/${qId}`);
+    }
 
 }
