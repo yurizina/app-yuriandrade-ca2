@@ -1,14 +1,17 @@
 <ion-header>
 	<ion-toolbar color="primary">
-		<ion-title>Quotes </ion-title>
+		<ion-title>Quotes</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
 	<ion-list>
-		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quote)">
-			{{ quote.quote }}
+		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async"
+			(click)="openDetails(quote)">
+			<!-- ngFor responsible for create multiple elements same type in array -->
+			<!-- async - observe variable that execute multiple things without finishing current-->
+			<!-- ? - if varibable null dont crash -->
+			{{ quote.author }}
 		</ion-item>
-	<ion-list>
+	</ion-list>
 </ion-content>

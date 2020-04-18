@@ -1,16 +1,18 @@
 <!-- We can settle all primary code in html, but these buttons will not work-->
 <!-- We need to go to deaths.page.ts to implement the logic behind this code-->
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Deaths</ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="primary">
+		<ion-title>Deaths</ion-title>
+	</ion-toolbar>
 </ion-header>
- 
+
 <ion-content class="ion-padding">
-
-<ion-list>
-<ion-item button detail lines="inset" *ngFor="let deaths of deaths | async">
-{{ death.name }}
-</ion-list>
-
+	<ion-list>
+		<ion-item *ngIf="deaths">
+			<!-- ngFor responsible for create multiple elements same type in array -->
+			<!-- async - observe variable that execute multiple things without finishing current-->
+			<!-- ? - if varibable null dont crash -->
+			{{ deaths.death-count }}
+		</ion-item>
+	</ion-list>
 </ion-content>

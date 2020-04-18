@@ -24,7 +24,7 @@ export class CharacterDetailsPage implements OnInit {
         this.api.getCharacter(this.charId).subscribe(res => {
           this.character = res[0];
           //Honestly I do not know why we use JSON here! :P Not yet! 
-          console.log(JSON.stringify(res[0]));
+          console.log(JSON.stringify(this.character.char_id));
        });
     }
 

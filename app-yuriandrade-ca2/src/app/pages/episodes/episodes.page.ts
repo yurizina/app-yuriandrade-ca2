@@ -31,7 +31,7 @@ export class EpisodesPage implements OnInit {
       //We come with this line after we check the API and see that episode is presented there 
       let epId = episode.episode_id;
       //After we check the episode, we route to the characters details pages! 
-      this.router.navigateByUrl('/tabs/characters/${epId}');  
+      this.router.navigateByUrl('/tabs/episodes/${epId}');  
   }
 
 }
