@@ -1,9 +1,23 @@
 <ion-header>
 	<ion-toolbar color="primary">
+
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
 		</ion-buttons>
+
 		<ion-title>Character Details</ion-title>
+
+		<ion-buttons slot="end">
+			<ion-button (click)="unfavouriteChar()" *ngIf="isFavourite">
+            <!-- the ngIF check if the statement is true or not-->
+            <!-- We have two buttons, one when is favorite and one when is not-->
+				<ion-icon name="star" slot="icon-only"></ion-icon>
+			</ion-button>
+			<ion-button (click)="favouriteChar()" *ngIf="!isFavourite">
+				<ion-icon name="star-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
 	</ion-toolbar>
 </ion-header>
 
@@ -11,7 +25,23 @@
 
 	<ion-card *ngIf="character">
 		<ion-card-content>
-			{{ character.name }}
+			<h2> Name: {{ character.name }} </h2>
+		</ion-card-content>
+
+		<ion-card-content>
+			<h2> Nickname: {{ character.nickname }} </h2>
+		</ion-card-content>
+
+		<ion-card-content>
+			<h2>Birthday: {{ character.birthday }} </h2>
+		</ion-card-content>
+
+		<ion-card-content>
+			<h2> Occupation: {{ character.occupation }} </h2>
+		</ion-card-content>
+
+		<ion-card-content>
+			<img src="{{ character.img }}">
 		</ion-card-content>
 	</ion-card>
 </ion-content>

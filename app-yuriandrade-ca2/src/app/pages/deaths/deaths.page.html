@@ -8,11 +8,11 @@
 
 <ion-content class="ion-padding">
 	<ion-list>
-		<ion-item *ngIf="deaths">
+		<ion-item *ngFor="let death of deaths | async">
 			<!-- ngFor responsible for create multiple elements same type in array -->
 			<!-- async - observe variable that execute multiple things without finishing current-->
 			<!-- ? - if varibable null dont crash -->
-			{{ deaths.death-count }}
+			{{ death.deathCount }}
 		</ion-item>
 	</ion-list>
 </ion-content>

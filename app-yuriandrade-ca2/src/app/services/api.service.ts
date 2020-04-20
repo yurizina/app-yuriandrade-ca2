@@ -11,12 +11,12 @@ export class ApiService {
 
     getEpisodes() {
         //We define functions to call the method in the Episode logic page
-        return this.http.get('https://www.breakingbadapi.com/api/episodes')
+        return this.http.get(`https://www.breakingbadapi.com/api/episodes`)
     }
 
     getEpisode(id) {
         //This function will select the epsiode desired! 
-        return this.http.get('https://www.breakingbadapi.com/api/episodes/${id}')
+        return this.http.get(`https://www.breakingbadapi.com/api/episodes/${id}`)
     }
     getCharacters() {
         //We define functions to call the method in the Characters logic page
@@ -24,18 +24,18 @@ export class ApiService {
     }
 
     getCharacter(id) {
-        return this.http.get('https://www.breakingbadapi.com/api/characters/${id}')
+        return this.http.get(`https://www.breakingbadapi.com/api/characters/${id}`)
     }
     getQuotes() {
         //Same as getEpisodes but for Quotes
-        return this.http.get('https://www.breakingbadapi.com/api/quotes')
+        return this.http.get(`https://www.breakingbadapi.com/api/quotes`)
     }
 
     getQuote(id) {
-        return this.http.get('https://www.breakingbadapi.com/api/quotes/${id}')
+        return this.http.get(`https://www.breakingbadapi.com/api/quotes/${id}`)
     }
     getDeaths() {
-        return this.http.get('https://www.breakingbadapi.com/api/deaths')
+        return this.http.get(`https://www.breakingbadapi.com/api/death-count`)
     }
 
 

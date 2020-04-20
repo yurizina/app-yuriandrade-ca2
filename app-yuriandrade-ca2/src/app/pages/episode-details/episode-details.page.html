@@ -3,13 +3,43 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/episodes"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Episodes Details</ion-title>
+		
+        <ion-title>Episode Details</ion-title>
+
+        <ion-buttons slot="end">
+			<ion-button (click)="unfavouriteEp()" *ngIf="isFavourite">
+            <!-- the ngIF check if the statement is true or not-->
+            <!-- We have two buttons, one when is favorite and one when is not-->
+				<ion-icon name="star" slot="icon-only"></ion-icon>
+			</ion-button>
+			<ion-button (click)="favouriteEp()" *ngIf="!isFavourite">
+				<ion-icon name="star-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content padding>
 
 	<ion-card *ngIf="episode">
-		<ion-card-content>{{ episode.title }}</ion-card-content>
+		<ion-card-content>
+			<h2>Title: <b>{{ episode.title }}</b> </h2>
+		</ion-card-content>
+
+        <ion-card-content>
+			<h2> Season: {{ episode.season }} </h2>
+		</ion-card-content>
+
+        <ion-card-content>
+			<h2> Released: {{ episode.air_date }} </h2>
+		</ion-card-content>
 	</ion-card>
+
+    <ion-card *ngIf="episode">
+		<ion-card-content>
+			<h3> Characters: {{ episode.characters }} </h3>
+		</ion-card-content>
+	</ion-card>
+
 </ion-content>
