@@ -8,12 +8,24 @@
 
 <ion-content class="ion-padding">
 	<ion-list>
-		<ion-item button detail lines="inset" *ngFor="let character of characters | async"
-			(click)="openDetails(character)">
+		<ion-item button detail lines="inset" *ngFor="let character of chars" (click)="openDetails(character)">
 			<!-- ngFor responsible for create multiple elements same type in array -->
-			<!-- async - observe variable that execute multiple things without finishing current-->
+			<!-- REMOVED -- async - we removed this because we are not using observe anymore-->
 			<!-- ? - if varibable null dont crash -->
-			{{ character.name }}
+			<ion-avatar slot="start">
+				<img src="{{ character.img }}">
+            </ion-avatar>
+				<!-- The tag avatar will display the image in a rounded icon-->
+				<ion-label>
+					<p> {{ character.name }} </p>
+				</ion-label>
+
 		</ion-item>
 	</ion-list>
+
+	<ion-infinite-scroll threshold="5%" (ionInfinite)="loadMore($event)">
+		<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more characters">
+		</ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+
 </ion-content>

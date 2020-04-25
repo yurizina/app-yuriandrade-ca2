@@ -2,16 +2,20 @@
 	<ion-toolbar color="primary">
 		<ion-title>Quotes</ion-title>
 	</ion-toolbar>
+
+    <ion-toolbar>
+      <ion-searchbar [(ngModel)]="author" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
+      </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-	<ion-list>
+	<ion-card>
 		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async"
 			(click)="openDetails(quote)">
 			<!-- ngFor responsible for create multiple elements same type in array -->
 			<!-- async - observe variable that execute multiple things without finishing current-->
 			<!-- ? - if varibable null dont crash -->
-			{{ quote.author }}
+			{{ quote.quote }}
 		</ion-item>
-	</ion-list>
+	</ion-card>
 </ion-content>

@@ -11,7 +11,15 @@
 
 	<ion-card *ngIf="quote">
 		<ion-card-content>
-			{{ quote.quote }}
+			Author: {{ quote.author }}
+		</ion-card-content>
+
+        <ion-card-content> Quote: 
+			<i><blockquote> {{ quote.quote }} </blockquote></i>
+		</ion-card-content>
+
+        <ion-card-content>
+			Serie: {{ quote.series }}
 		</ion-card-content>
 	</ion-card>
 </ion-content>
