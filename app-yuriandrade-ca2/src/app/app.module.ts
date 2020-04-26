@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 
-
+//Code retrieved from Mikhail Timoteef, lecturer from CCT, module mobile development 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

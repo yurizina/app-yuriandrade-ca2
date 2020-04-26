@@ -11,7 +11,7 @@ const STORAGE_KEY2 = 'favouriteEp';
 export class FavouriteService {
  
   constructor(private storage: Storage) { }
- 
+//Code retrieved from Mikhail Timoteef, lecturer from CCT, module mobile development 
   getAllFavouriteChars() {
     return this.storage.get(STORAGE_KEY);
   }

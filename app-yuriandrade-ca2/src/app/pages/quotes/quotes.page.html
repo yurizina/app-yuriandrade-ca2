@@ -1,17 +1,23 @@
 <ion-header>
 	<ion-toolbar color="primary">
-		<ion-title>Quotes</ion-title>
+		<ion-title class="ion-text-center">Quotes</ion-title>
 	</ion-toolbar>
 
-    <ion-toolbar>
-      <ion-searchbar [(ngModel)]="author" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
-      </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+	<ion-toolbar>
+    <!-- To search we create a method and pass the variable event-->
+    <!-- https://angular.io/api/forms/NgModel#description -->
+		<ion-searchbar [(ngModel)]="input" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
+	</ion-toolbar>
+    <!-- 
+        Search from: 
+        https://ionicframework.com/docs/api/searchbar
+      https://stackoverflow.com/questions/60269897/search-api-data-in-ionic-4
+    -->
 	<ion-card>
-		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async"
-			(click)="openDetails(quote)">
+		<ion-item button detail lines="inset" *ngFor="let quote of quotes | async" (click)="openDetails(quote)">
 			<!-- ngFor responsible for create multiple elements same type in array -->
 			<!-- async - observe variable that execute multiple things without finishing current-->
 			<!-- ? - if varibable null dont crash -->

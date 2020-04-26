@@ -10,6 +10,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class DeathsPage implements OnInit {
 
+   death: any; 
    deaths: Observable<any>;
 
   constructor(private api: ApiService, private router: Router) { }
@@ -21,5 +22,11 @@ export class DeathsPage implements OnInit {
       });
 
   }
+   search() {
+        this.deaths = this.api.getDeath(this.death);
+        this.deaths.subscribe(res => {
+            console.log('my data', res);
+        });
+    }
 
 }

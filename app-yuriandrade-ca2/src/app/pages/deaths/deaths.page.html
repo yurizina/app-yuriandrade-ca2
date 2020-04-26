@@ -2,17 +2,24 @@
 <!-- We need to go to deaths.page.ts to implement the logic behind this code-->
 <ion-header>
 	<ion-toolbar color="primary">
-		<ion-title >Deaths</ion-title>
+		<ion-title class="ion-text-center">Deaths</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-	
-		<ion-card *ngFor="let death of deaths | async">
-			<!-- ngFor responsible for create multiple elements same type in array -->
-			<!-- async - observe variable that execute multiple things without finishing current-->
-			<!-- ? - if varibable null dont crash -->
-			<h1 class="ion-text-center"> {{ death.deathCount }} </h1>
-		</ion-card>
+	<ion-card class="ion-padding-horizontal">
+		<p> How many people were killed because of someone? Search for name of the character.
+         Otherwise, is displayed the <b>total</b> number of deaths in Breaking Bad!</p>
+	</ion-card>
+
+	<ion-searchbar [(ngModel)]="death" (ionChange)="search($event)"></ion-searchbar>
+
+
+	<ion-card color="danger" *ngFor="let death of deaths | async">
+		<!-- ngFor responsible for create multiple elements same type in array -->
+		<!-- async - observe variable that execute multiple things without finishing current-->
+		<!-- ? - if varibable null dont crash -->
+		<h1  class="ion-text-center"> {{ death.deathCount }} </h1>
+	</ion-card>
 
 </ion-content>

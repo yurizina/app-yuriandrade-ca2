@@ -3,11 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 // After set up view and main path, we have to set up the rooting for the tabs!  
 import { TabsPage } from './tabs.page';
 
+//Code based upon Mikhail Timoteef, lecturer from CCT, module Mobile Development
 const routes: Routes = [
   {
    path: 'tabs',
     component: TabsPage,
     children: [
+        {
+        path: 'logo',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../logo/logo.module').then( m => m.LogoPageModule)
+          },
+        ]
+      },
       {
         path: 'characters',
         //this will be written as tabs/characters
@@ -61,9 +71,10 @@ const routes: Routes = [
       }
     ]
   },
+  //First page open will be logo, because the empty path redirects to the page selected
   {
     path: '',
-    redirectTo: '/tabs/characters',
+    redirectTo: '/tabs/logo',
     pathMatch: 'full'
   }
 ];
