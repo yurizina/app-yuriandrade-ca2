@@ -6,12 +6,10 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-	<ion-toolbar>
-    <!-- To search we create a method and pass the variable event-->
-    <!-- https://angular.io/api/forms/NgModel#description -->
-		<ion-searchbar [(ngModel)]="input" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
-	</ion-toolbar>
-    <!-- 
+	<!-- To search we create a method and pass the variable event-->
+	<!-- https://angular.io/api/forms/NgModel#description -->
+	<ion-searchbar [(ngModel)]="input" (ionChange)="search($event)" placeholder="Search by Author"></ion-searchbar>
+	<!-- 
         Search from: 
         https://ionicframework.com/docs/api/searchbar
       https://stackoverflow.com/questions/60269897/search-api-data-in-ionic-4
