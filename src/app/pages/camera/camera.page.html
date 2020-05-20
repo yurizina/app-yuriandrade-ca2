@@ -1,12 +1,15 @@
+<!-- We use the same pattern in our app, previous to other pages! -->
 <ion-header>
 	<ion-toolbar color="primary">
 		<ion-title class="ion-text-center">Camera</ion-title>
 	</ion-toolbar>
 </ion-header>
 
+<!-- We have to select one image, unfortunately, the icon stay there until you save the first image-->
+<!-- code retrivied from: https://capacitor.ionicframework.com/docs/guides/ionic-framework-app/?fbclid=IwAR2kN14AHnRUBglTXITm21avNstwk2Pikf64lml9IF6gVHHlsamxAH-Tzk4-->
 <ion-content>
   <img [src]="photo" >
-
+<!-- The button will be used to take the picture-->
 <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="takePicture()">
       <ion-icon name="camera"></ion-icon>

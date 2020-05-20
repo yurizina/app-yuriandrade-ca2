@@ -70,6 +70,7 @@ const routes: Routes = [
         ]
       },
       {
+          //We have to add a rouning for the new tab of camera, we used the same code from other tabs
         path: 'camera',
         children: [
           {
