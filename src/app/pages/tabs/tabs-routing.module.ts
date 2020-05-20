@@ -53,7 +53,7 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: () => import('../deaths/deaths.module').then( m => m.DeathsPageModule)
-          },
+          }
         ]
       },
       {
@@ -66,6 +66,15 @@ const routes: Routes = [
           {
             path: ':id',
             loadChildren: () => import('../quote-details/quote-details.module').then( m => m.QuoteDetailsPageModule)
+          }
+        ]
+      },
+      {
+        path: 'camera',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../camera/camera.module').then( m => m.CameraPageModule)
           }
         ]
       }
